@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>初识vue3</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click = "show">click me!!!</button>
+	</div>
+	<script>
+	new Vue({
+		el:"#app",
+		methods:{
+		show:function(event){
+			alert("show something");
+		}
+		}
+	})
+	</script>
+</body>
+</html>

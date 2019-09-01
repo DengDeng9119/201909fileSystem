@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for = "movie on formateMovie">{{movie}}</li>
+        </ul>
+        <button v-on:click = "addMovie">添加电影</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                movies:[{name:"捉妖记",year:2018},{name:"星球大战",year:2018},{name:"唐人街探案",year:2018}]
+            },
+            method:{
+                addMovie:function () {
+                    this.movies.push({
+                        name:"猫妖传",
+                        year:2017
+                    })
+                }
+            },
+            watch:{
+                movies:function(newValue){
+                    alert("我添加了" + newValue[newValue.length()-1].name)
+                }
+            },
+            computed: {
+                formateMovie:function(){
+                    return this.movies.map(function(movie){
+                        return movie.name + " (" + movie.year + ") ";
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

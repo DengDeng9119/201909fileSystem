@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渲染DOM节点</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--渲染DOM节点-->
+        {{html}}
+        <div v-html="html"></div>
+        <!--渲染一次，不随输入变化而变化-->
+        <div v-once>{{message}}</div>
+        {{message}}
+        <button v-on:click = "message = 123">Click me!</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+                html: "<h1>Hello</h1>",
+                message: "dengdeng"
+            }
+        })
+    </script>
+</body>
+</html>

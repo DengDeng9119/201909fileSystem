@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue练习1</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- 输出一个电影的名字和上映时间 -->
+		<!-- 判断一部电影是否是新电影 2000年后为新 -->
+		<!-- title的绑定 -->
+		电影名：{{ name }}
+		<br>
+		上映日期：{{ year }}
+		<br>
+        这部电影{{ year>60?"是" :"不是" }}新电影
+        <div v-bind:title="name">
+        	<h3>Hover me!</h3>
+        </div>
+
+	</div>
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				name:"大鱼海棠",
+				year:2017
+			}
+		})
+	</script>
+</body>
+</html>

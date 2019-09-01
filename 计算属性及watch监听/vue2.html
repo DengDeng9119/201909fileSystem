@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="serachInfo">
+        <div v-if="showSearching">正在搜索......</div>
+        <ul>
+            <li v-for="item in result">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                serachInfo:"",
+                showSearching:false,
+                result:[]
+            },
+            //必须有返回值
+            // computed:{
+            //
+            // },
+
+            //watch,没有返回值
+            watch:{
+                serachInfo:function(query){
+                    // console.log(query)
+                    this.showSearching = true;
+                    var vm = this;
+                    setTimeout(function(){
+                        vm.showSearching = false;
+                        vm.result = ["html","css","vue"];
+                    },500)
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

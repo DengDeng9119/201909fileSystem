@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部分函数改变vue数组里面的值</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="item in person">
+            {{item.id}} : {{item.name}}
+        </div>
+        <button v-on:click="add">Click me!</button>
+        <button v-on:click="reverse">Reverse</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                person:[{
+                    id:1,
+                    name:"小花花"
+                },{
+                    id:2,
+                    name:"小比比"
+                },{
+                    id:2,
+                    name:"小堆堆"
+                }]
+            },
+            methods:{
+                add:function(){
+                    this.person.push({
+                        id:4,
+                        name:"流星雨"
+                    })
+                },
+                reverse:function () {
+                    this.person.reverse();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

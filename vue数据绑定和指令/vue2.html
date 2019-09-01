@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>初识Vue2</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- Vue指令语法：v-指令名字+：+指令的参数 = 指令的表达式 -->
+		<a v-bind:href="url">百度一下，你就知道！</a>
+	</div>
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				url:"http://www.baidu.com"
+			}
+		})
+	</script>
+</body>
+</html>
+

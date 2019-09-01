@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏DOM节点</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--隐藏DOM节点：v-if和v-show(改变display）-->
+    <div id="app">
+        <p v-if="items>10">{{items}}个现货</p>
+        <p v-else-if="items>1">所剩不多，快点买吧</p>
+        <p v-else>没有库存了，请耐心等待</p>
+
+        <!--方法一-->
+        <!--<p v-if="items>50">注意事项</p>-->
+        <!--<p v-if="items>50">因为剩余很多，现在打8折哦！！！</p>-->
+        <!--方法二（新标签）-->
+        <template v-if="items>50">
+            <p >注意事项</p>
+            <p >因为剩余很多，现在打8折哦！！！</p>
+        </template>
+
+        <!--通过v-show隐藏DOM节点（实际上是改变dispaly1的值）-->
+        <p v-show="Ninja">I am hide!</p>
+        <p v-show="!Ninja">I am here!!</p>
+        <button v-on:click="Ninja = !Ninja">Ninja Skills!</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data: {
+                items: 51,
+                Ninja:true
+            }
+        })
+</script>
+</body>
+</html>

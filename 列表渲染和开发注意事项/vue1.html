@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for 循环</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>电影列表</h1>
+        <ul>
+            <li v-for="title in movies">{{title}}</li>
+            <!--索引 index-->
+            <!--<li v-for="(title,index)  in movies">{{title}} {{index}}</li>-->
+        </ul>
+
+        <!--表格循环-->
+        <table>
+            <thead>
+            <th>姓名</th>
+            <th>描述</th>
+            <th>家园</th>
+            </thead>
+            <tobdy>
+                <tr v-for="person in person">
+                    <td>{{person.name}}</td>
+                    <td>{{person.title}}</td>
+                    <td>{{company}}</td>
+                </tr>
+            </tobdy>
+        </table>
+
+        <!--三个参数：属性值，属性名，属性索引-->
+        <div v-for="(charact,prop,index) in special">{{prop}}:{{charact}} {{index}}</div>
+
+        <!--数字循环-->
+        <div v-for="n in 10">{{n}}</div>
+
+        <!--字符串循环-->
+        <div v-for="s in 'you are a pig!'">{{s}}</div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                movies:["猫妖传","芳华","至暗时刻"],
+                person:[{
+                    name:"dengdeng",
+                    title:"small"
+                },{
+                    name:"caoying",
+                    title:"middle"
+                },{
+                    name:"duidui",
+                    title:"big"
+                }],
+                company:"疯了园",
+                special:{
+                    lasrName:"deng",
+                    firstName:"deng",
+                    age:20
+                }
+            }
+        })
+    </script>
+</body>
+</html>

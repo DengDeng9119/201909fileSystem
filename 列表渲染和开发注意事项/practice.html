@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if v-for</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <input type="password">
+
+        <p v-if="chars>8">你的字符大于8个</p>
+        <p v-else-if="chars>0">你有几个字符</p>
+        <p v-else>你没有字符</p>
+
+        <ol>
+            <li v-for="sub in subs">
+                {{sub.name}}
+                <ul>
+                    <li v-for="item in sub.sub">{{item}}</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    <script>
+       new Vue({
+           el:"#app",
+           data:{
+               password:"123",
+               chars:0,
+               subs:[{
+                    name:"javascript",sub:["vue","react","angular"]
+               },{
+                   name:"database",sub:["mysql","mongodb","sqlserver"]
+               },{
+                   name:"system",sub:["macOS","linux","windows"]
+               }]
+           }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>methods和computed</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <!--methods里面方法时的用法-->
+        <!--<div>{{getFullName()}}</div>-->
+
+        <!--computed里面方法时的用法-->
+        <!--<div>{{getFullName}}</div>-->
+
+        <div>{{fullName}}</div>
+        <button v-on:click="num ++">Add!</button>
+        <button v-on:click="changeName">Click!</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0,
+                firstName:"dengdeng",
+                lastName:"da"
+            },
+            //num+1时，都会执行这个方法
+            // methods: {
+            //     getFullName: function () {
+            //         return this.lastName + " " + this.firstName;
+            //     }
+            // },
+
+            methods:{
+                changeName:function(){
+                    this.firstName = "dandan";
+                    this.lastName = "xiao";
+                    this.fullName  = this.lastName + " " + this.firstName;
+                }
+            },
+
+            //num+1时，不会执行
+            // computed:{
+            //     getFullName: function () {
+            //         return this.lastName + " " + this.firstName;
+            //     }
+            // },
+
+            //    get和set属性
+            computed:{
+                fullName:{
+                    get:function(){
+                        return this.lastName +" " + this.firstName;
+                    },
+                    set:function(newValue){
+                        console.log(newValue);
+
+                    //    数组
+                    //    var arr  = newValue.split(" ");
+                    //    var a = arr[0];
+                    //    ......
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变vue对象里面的值</title>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <li v-for="n in numbers">{{n}}</li>
+        <button v-on:click="changeNumber">Click!</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                numbers:[1,2,3,4,5]
+            },
+            methods: {
+                changeNumber: function () {
+                    //未改变numbers里面的值
+                    // this.numbers[1] = 10;
+                    // alert(this.numbers[1]);
+                    //改变numbers里面的值 参数：数组，索引，改变的数值
+                    Vue.set(this.numbers,1,10),
+                    alert(this.numbers[1]);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
